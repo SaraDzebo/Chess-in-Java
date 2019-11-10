@@ -11,9 +11,7 @@ public class IllegalChessMoveException extends Exception {
     this.have_error=true;
     }
 
-    public IllegalChessMoveException(String message,Throwable throwable){
-        this.have_error=true;
+    public IllegalChessMoveException(String message,Throwable throwable) {
+        this.have_error = true;
     }
-
-
 }
