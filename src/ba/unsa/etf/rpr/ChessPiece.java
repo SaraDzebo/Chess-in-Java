@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr;
 
-public class ChessPiece {
+public abstract class ChessPiece {
     protected Color color;
     public static enum Color{BLACK,WHITE}
     protected String position;
@@ -12,6 +12,12 @@ public class ChessPiece {
       this.position=position;
     }
 
+    public Color getColor(){
+        return this.color;
+    }
+     public abstract String getPosition();
+
+    public abstract boolean move(String position) throws IllegalChessMoveException;
 
 
 
