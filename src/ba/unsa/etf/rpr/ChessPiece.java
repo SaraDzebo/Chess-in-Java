@@ -19,6 +19,10 @@ public abstract class ChessPiece {
 
     public abstract boolean move(String position) throws IllegalChessMoveException;
 
+    public abstract void setColor(Color color);
+
+    public abstract void setPosition(String position);
+
 
 
 }
