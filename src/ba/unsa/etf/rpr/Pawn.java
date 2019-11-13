@@ -17,7 +17,9 @@ throw new IllegalArgumentException("Pozicija se nalazi an tabele.");
     public Color getColor(){
         return color;
     }
-
+    public void setPozicija(String pozicija){
+        this.position=pozicija;
+    }
 
     @Override
     public String getPosition() {

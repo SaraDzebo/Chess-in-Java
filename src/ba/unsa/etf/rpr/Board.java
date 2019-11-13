@@ -1,17 +1,17 @@
 package ba.unsa.etf.rpr;
 
 public class Board{
-    public ChessPiece.Color color;
+    //public ChessPiece.Color color;
     public static ChessPiece[][] fields = new ChessPiece[8][8];
 
 
-    public void setColor(ChessPiece.Color color) {
+    /*public void setColor(ChessPiece.Color color) {
         this.color = color;
-    }
+    }*/
 
-    public ChessPiece.Color getColor() {
+    /*public ChessPiece.Color getColor() {
         return color;
-    }
+    }*/
 
     //konstruktorza klasu Board pocetno stanje
     public Board() {
@@ -35,6 +35,15 @@ public class Board{
     fields [1][5]=new Pawn("F7",ChessPiece.Color.BLACK);
     fields [1][6]=new Pawn("G7",ChessPiece.Color.BLACK);
     fields [1][7]=new Pawn("H7",ChessPiece.Color.BLACK);
+
+    fields [6][0]=new Pawn("A2", ChessPiece.Color.WHITE);
+    fields [6][1]=new Pawn("B2", ChessPiece.Color.WHITE);
+    fields [6][2]=new Pawn("C2", ChessPiece.Color.WHITE);
+    fields [6][3]=new Pawn("D2", ChessPiece.Color.WHITE);
+    fields [6][4]=new Pawn("E2", ChessPiece.Color.WHITE);
+    fields [6][5]=new Pawn("F2", ChessPiece.Color.WHITE);
+    fields [6][6]=new Pawn("G2", ChessPiece.Color.WHITE);
+    fields [6][7]=new Pawn("H2", ChessPiece.Color.WHITE);
 
 
 
