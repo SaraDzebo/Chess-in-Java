@@ -1,17 +1,17 @@
 package ba.unsa.etf.rpr;
 
 public class Board {
-    //public ChessPiece.Color color;
+    public ChessPiece.Color color;
     public static ChessPiece[][] fields = new ChessPiece[8][8];
 
 
-    /*public void setColor(ChessPiece.Color color) {
+    public void setColor(ChessPiece.Color color) {
         this.color = color;
-    }*/
+    }
 
-    /*public ChessPiece.Color getColor() {
+    public ChessPiece.Color getColor() {
         return color;
-    }*/
+    }
 
     //konstruktorza klasu Board pocetno stanje
     public Board() {
@@ -69,20 +69,75 @@ public class Board {
         fields[0][7] = new Rook("H8", ChessPiece.Color.BLACK);
 
 
+    }
+
+    //pomocna funkcija
+    public int helpFunction(char znak) {
+        int y = 0;
+        if (znak == 'A')
+            y = 0;
+        if (znak == 'B')
+            y = 1;
+        if (znak == 'C')
+            y = 2;
+        if (znak == 'D')
+            y = 3;
+        if (znak == 'E')
+            y = 4;
+        if (znak == 'F')
+            y = 5;
+        if (znak == 'G')
+            y = 6;
+        if (znak == 'H')
+            y = 7;
+        if (znak == '8')
+            y = 0;
+        if (znak == '7')
+            y = 1;
+        if (znak == '6')
+            y = 2;
+        if (znak == '5')
+            y = 3;
+        if (znak == '4')
+            y = 4;
+        if (znak == '3')
+            y = 5;
+        if (znak == '2')
+            y = 6;
+        if (znak == '1')
+            y = 7;
+        return y;
+
+    }
+
+    public void move(Class type, ChessPiece.Color color, String position) throws IllegalChessMoveException {
+        //velika-mala slova
+        position = position.toUpperCase();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (fields[i][j] != null) {
+                    if (fields[i][j].getClass() == type && fields[i][j].getColor().equals(color)) {
+                        try {
+                            fields[i][j].move(position);
+                            fields[(position.charAt(1))][helpFunction(position.charAt(0))] = fields[i][j]; //matrica
+                            fields[i][j] = null;
+                            return;
+                        } catch (Exception e) {
+                        }
+                    }
+
+                }
+            }
+        }
+
+        throw new IllegalChessMoveException("Ne postoji figura za koju je zadani potez legalan!");
+    }
 
 
-
-
-
-
-    /*public boolean isCheck(ChessPiece.Color white) {
+    public boolean isCheck(ChessPiece.Color white) {
         return true;
-    }
 
-    public void move(String e2, String e4) {
-    }
 
-    public void move(Class<Pawn> pawnClass, ChessPiece.Color white, String e4) {
-    }*/
     }
 }
+
