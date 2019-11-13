@@ -20,7 +20,7 @@ public class Field {
         this.is_free=is_free;
     }
 
-    public void setPosition(){
+    public void setPosition(String number){
      this.position=position;
     }
 
