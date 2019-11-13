@@ -52,6 +52,18 @@ public class Board{
     fields [0][4] = new King("E8", ChessPiece.Color.BLACK);
     fields [7][4] = new King("E1", ChessPiece.Color.WHITE);
 
+    //KNIGHTS
+    ploca[0][1] = new Knight("B8", ChessPiece.Color.BLACK);
+    ploca[0][6] = new Knight("G8", ChessPiece.Color.BLACK);
+    ploca[7][6] = new Knight("G1", ChessPiece.Color.WHITE);
+    ploca[7][1] = new Knight("B1", ChessPiece.Color.WHITE);
+
+    //BISHOPS
+    fields [0][2] = new Bishop("C8", ChessPiece.Color.BLACK);
+    fields [0][5] = new Bishop("F8", ChessPiece.Color.BLACK);
+    fields [7][2] = new Bishop("C1", ChessPiece.Color.WHITE);
+    fields [7][5] = new Bishop("F1", ChessPiece.Color.WHITE);
+
 
 
 
