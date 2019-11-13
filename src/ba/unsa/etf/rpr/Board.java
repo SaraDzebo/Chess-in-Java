@@ -1,12 +1,9 @@
 package ba.unsa.etf.rpr;
 
-public class Board {
+public class Board{
     public ChessPiece.Color color;
-    private char letter;
-    private String number;
-
     public static ChessPiece[][] fields = new ChessPiece[8][8];
-    public ChessPiece[] chessPieces = new ChessPiece[32];
+
 
     public void setColor(ChessPiece.Color color) {
         this.color = color;
@@ -28,6 +25,18 @@ public class Board {
     }
 
         //ZA PIJUNE
+
+
+    fields [1][0]=new Pawn("A7",ChessPiece.Color.BLACK);
+    fields [1][1]=new Pawn("B7",ChessPiece.Color.BLACK);
+    fields [1][2]=new Pawn("C7",ChessPiece.Color.BLACK);
+    fields [1][3]=new Pawn("D7",ChessPiece.Color.BLACK);
+    fields [1][4]=new Pawn("E7",ChessPiece.Color.BLACK);
+    fields [1][5]=new Pawn("F7",ChessPiece.Color.BLACK);
+    fields [1][6]=new Pawn("G7",ChessPiece.Color.BLACK);
+    fields [1][7]=new Pawn("H7",ChessPiece.Color.BLACK);
+
+
 
 
 

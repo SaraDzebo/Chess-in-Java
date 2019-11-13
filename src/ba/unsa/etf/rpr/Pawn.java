@@ -1,9 +1,23 @@
 package ba.unsa.etf.rpr;
 
 public class Pawn extends ChessPiece {
-    public Pawn(){}
-    public Pawn( String color, Color white) {
+    private String position;
+    private Color color;
+    public Pawn(String position,Color color){
+        this.position=position;
+        this.color=color;
+        if(position.length()!=2) {
+            throw new IllegalArgumentException("Pozicija nije u ispravnom formatu.");
+        }
+        if(!(position.charAt(0)>=65 && position.charAt(0)<=72) || (position.charAt(0)>=97 && position.charAt(0)<=104)){
+throw new IllegalArgumentException("Pozicija se nalazi an tabele.");
+        }
     }
+    @Override
+    public Color getColor(){
+        return color;
+    }
+
 
     @Override
     public String getPosition() {
@@ -11,17 +25,7 @@ public class Pawn extends ChessPiece {
     }
 
     @Override
-    public boolean move(String position) throws IllegalChessMoveException {
-        return false;
-    }
-
-    @Override
-    public void setColor(Color color) {
-
-    }
-
-    @Override
-    public void setPosition(String position) {
+    public void move(String position) throws IllegalChessMoveException {
 
     }
 }
