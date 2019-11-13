@@ -45,6 +45,13 @@ public class Board{
     fields [6][6]=new Pawn("G2", ChessPiece.Color.WHITE);
     fields [6][7]=new Pawn("H2", ChessPiece.Color.WHITE);
 
+    //QUEENS
+    fields [0][3] = new Queen("D8", ChessPiece.Color.BLACK);
+    fields [7][3] = new Queen("D1", ChessPiece.Color.WHITE);
+    //KINGS
+    fields [0][4] = new King("E8", ChessPiece.Color.BLACK);
+    fields [7][4] = new King("E1", ChessPiece.Color.WHITE);
+
 
 
 
