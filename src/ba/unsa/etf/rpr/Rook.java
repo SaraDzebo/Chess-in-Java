@@ -2,6 +2,9 @@ package ba.unsa.etf.rpr;
 
 public class Rook extends ChessPiece {
 
+    public Rook(String a1, Color white) {
+    }
+
     @Override
     public Color getColor() {
         return null;
