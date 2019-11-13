@@ -12,16 +12,15 @@ public abstract class ChessPiece {
       this.position=position;
     }
 
-    public Color getColor(){
-        return this.color;
-    }
+    public abstract Color getColor();
+
      public abstract String getPosition();
 
-    public abstract boolean move(String position) throws IllegalChessMoveException;
+    public abstract void move(String position) throws IllegalChessMoveException;
 
     public abstract void setColor(Color color);
 
-    public abstract void setPosition(String position);
+
 
 
 
