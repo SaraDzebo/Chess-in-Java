@@ -118,11 +118,13 @@ public class Board {
                 if (fields[i][j] != null) {
                     if (fields[i][j].getClass() == type && fields[i][j].getColor().equals(color)) {
                         try {
+                            //ukoliko dodje do izuzetka
+
                             fields[i][j].move(position);
-                            fields[(position.charAt(1))][helpFunction(position.charAt(0))] = fields[i][j]; //matrica
-                            fields[i][j] = null;
+                            fields[(position.charAt(1))][helpFunction(position.charAt(0))] = fields[i][j]; //matric
                             return;
-                        } catch (Exception e) {
+                        }
+                        catch (Exception izuzetak) {
                         }
                     }
 
@@ -133,11 +135,5 @@ public class Board {
         throw new IllegalChessMoveException("Ne postoji figura za koju je zadani potez legalan!");
     }
 
-
-    public boolean isCheck(ChessPiece.Color white) {
-        return true;
-
-
-    }
 }
 
