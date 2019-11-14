@@ -5,7 +5,7 @@ public abstract class ChessPiece {
     public  enum Color{BLACK,WHITE}
 
 
-    public ChessPiece(){} //konstruktor bez parametara
+   // public ChessPiece(){} //konstruktor bez parametara
 
 
     public int helpFunction(char znak){

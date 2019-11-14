@@ -1,17 +1,17 @@
 package ba.unsa.etf.rpr;
 
 public class Board {
-    public ChessPiece.Color color;
+   // public ChessPiece.Color color;
     public static ChessPiece[][] fields = new ChessPiece[8][8];
 
 
-    public void setColor(ChessPiece.Color color) {
+   /* public void setColor(ChessPiece.Color color) {
         this.color = color;
     }
 
     public ChessPiece.Color getColor() {
         return color;
-    }
+    }*/
 
     //konstruktorza klasu Board pocetno stanje
     public Board() {
@@ -121,11 +121,11 @@ public class Board {
                             //ukoliko dodje do izuzetka
 
                             fields[i][j].move(position);
-                            fields[(position.charAt(1))][helpFunction(position.charAt(0))] = fields[i][j]; //matric
+                            fields[helpFunction(position.charAt(1))][helpFunction(position.charAt(0))] = fields[i][j]; //matric
                             fields[i][j]=null;
                             return;
                         }
-                        catch (Exception izuzetak) {
+                        catch (Exception e) {
                         }
                     }
 
@@ -138,12 +138,12 @@ public class Board {
 
 
 
-    public boolean isCheck(ChessPiece.Color color){
-        String string="";
+    public boolean isCheck(ChessPiece.Color color) {
+        String string ="";
 
-        for(int i=0;i<fields.length;i++){
-            for(int j=0;j<8;j++){
-                if(fields[i][j]!=null) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (fields[i][j] != null) {
                     if (fields[i][j].getClass() == King.class && fields[i][j].getColor().equals(color)) {
                         string = fields[i][j].getPosition();
                     }
@@ -151,47 +151,46 @@ public class Board {
             }
         }
 
-        for(int i=0;i<8;i++){
-            for(int j=0;j<8;j++){
-                if(fields[i][j]!=null && !(fields[i][j].getColor().equals(color))){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (fields[i][j] != null && !(fields[i][j].getColor().equals(color))) {
                     //ukoliko dodje do izuzetka
-                    try{
+                    try {
                         //za svaku klasu provjera
 
-                        if(fields[i][j] instanceof Knight){
-                            Knight glavni= new Knight(fields[i][j].getPosition(),fields[i][j].getColor());
+                        if (fields[i][j] instanceof Knight) {
+                            Knight glavni = new Knight(fields[i][j].getPosition(), fields[i][j].getColor());
                             glavni.move(string);
                             return true;
                         }
-                        if(fields[i][j] instanceof Pawn){
-                            Pawn glavni= new Pawn(fields[i][j].getPosition(),fields[i][j].getColor());
+                        if (fields[i][j] instanceof Pawn) {
+                            Pawn glavni = new Pawn(fields[i][j].getPosition(), fields[i][j].getColor());
                             glavni.move(string);
                             return true;
                         }
-                        if(fields[i][j] instanceof Bishop){
-                            Bishop glavni= new Bishop(fields[i][j].getPosition(),fields[i][j].getColor());
+                        if (fields[i][j] instanceof Bishop) {
+                            Bishop glavni = new Bishop(fields[i][j].getPosition(), fields[i][j].getColor());
                             glavni.move(string);
                             return true;
                         }
-                        if(fields[i][j] instanceof King){
-                            King glavni= new King(fields[i][j].getPosition(),fields[i][j].getColor());
+                        if (fields[i][j] instanceof King) {
+                            King glavni = new King(fields[i][j].getPosition(), fields[i][j].getColor());
                             glavni.move(string);
                             return true;
                         }
-                        if(fields [i][j] instanceof Queen){
-                            Queen glavni= new Queen(fields[i][j].getPosition(),fields[i][j].getColor());
-                            glavni.move(string);
-                            return true;
-                        }
-
-                        if(fields[i][j] instanceof Rook){
-                            Rook glavni= new Rook(fields [i][j].getPosition(),fields [i][j].getColor());
+                        if (fields[i][j] instanceof Queen) {
+                            Queen glavni = new Queen(fields[i][j].getPosition(), fields[i][j].getColor());
                             glavni.move(string);
                             return true;
                         }
 
-                    }
-                    catch (Exception izuzetak){
+                        if (fields[i][j] instanceof Rook) {
+                            Rook glavni = new Rook(fields[i][j].getPosition(), fields[i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+
+                    } catch (Exception e) {
 
                     }
                 }
