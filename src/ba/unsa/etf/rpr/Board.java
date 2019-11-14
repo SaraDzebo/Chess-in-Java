@@ -135,5 +135,70 @@ public class Board {
         throw new IllegalChessMoveException("Ne postoji figura za koju je zadani potez legalan!");
     }
 
+
+
+    public boolean isCheck(ChessPiece.Color color){
+        String string="";
+
+        for(int i=0;i<fields.length;i++){
+            for(int j=0;j<8;j++){
+                if(fields[i][j]!=null) {
+                    if (fields[i][j].getClass() == King.class && fields[i][j].getColor().equals(color)) {
+                        string = fields[i][j].getPosition();
+                    }
+                }
+            }
+        }
+
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                if(fields[i][j]!=null && !(fields[i][j].getColor().equals(color))){
+                    //ukoliko dodje do izuzetka
+                    try{
+                        //za svaku klasu provjera
+
+                        if(fields[i][j] instanceof Knight){
+                            Knight glavni= new Knight(fields[i][j].getPosition(),fields[i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+                        if(fields[i][j] instanceof Pawn){
+                            Pawn glavni= new Pawn(fields[i][j].getPosition(),fields[i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+                        if(fields[i][j] instanceof Bishop){
+                            Bishop glavni= new Bishop(fields[i][j].getPosition(),fields[i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+                        if(fields[i][j] instanceof King){
+                            King glavni= new King(fields[i][j].getPosition(),fields[i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+                        if(fields [i][j] instanceof Queen){
+                            Queen glavni= new Queen(fields[i][j].getPosition(),fields[i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+
+                        if(fields[i][j] instanceof Rook){
+                            Rook glavni= new Rook(fields [i][j].getPosition(),fields [i][j].getColor());
+                            glavni.move(string);
+                            return true;
+                        }
+
+                    }
+                    catch (Exception izuzetak){
+
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+
 }
 
