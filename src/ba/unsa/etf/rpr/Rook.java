@@ -8,8 +8,8 @@ public class Rook extends ChessPiece {
         if(pozicija.length()!=2) {
             throw new IllegalArgumentException("Pozicija nije u ispravnom formatu.");
         }
-        if(!(pozicija.charAt(0)>=65 && pozicija.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104) || !(pozicija.charAt(1)<=49 && pozicija.charAt(1)<=56)){
-            throw new IllegalArgumentException("Pozicija se nalazi van sahovske table.");
+        if((!((pozicija.charAt(0)>=65 && pozicija.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104)))||(!(pozicija.charAt(1)>=49 && pozicija.charAt(1)<=56))){
+            throw new IllegalArgumentException("Pozicija se nalazi van tabele.");
         }
         this.pozicija=pozicija;
         this.boja=boja;
@@ -31,11 +31,11 @@ public class Rook extends ChessPiece {
 
     @Override
     public void move(String position) throws IllegalChessMoveException {
-        if(pozicija.length()!=2) {
+        if(position.length()!=2) {
             throw new IllegalArgumentException("Pozicija nije u ispravnom formatu.");
         }
-        if(!(pozicija.charAt(0)>=65 && pozicija.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104) || !(pozicija.charAt(1)<=49 && pozicija.charAt(1)<=56)){
-            throw new IllegalArgumentException("Pozicija se nalazi van sahovske table.");
+        if((!((position.charAt(0)>=65 && position.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104)))||(!(position.charAt(1)>=49 && position.charAt(1)<=56))){
+            throw new IllegalArgumentException("Pozicija se nalazi van tabele.");
         }
 
         if(position.charAt(0)!=this.getPosition().charAt(0) && position.charAt(1)!=this.getPosition().charAt(1)) throw new IllegalChessMoveException("Potez nije dozvoljen");

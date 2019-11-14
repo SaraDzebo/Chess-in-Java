@@ -32,11 +32,11 @@ public class Bishop extends ChessPiece {
 
     @Override
     public void move(String position) throws IllegalChessMoveException {
-        if (pozicija.length() != 2) {
+        if(position.length()!=2) {
             throw new IllegalArgumentException("Pozicija nije u ispravnom formatu.");
         }
-        if (!(pozicija.charAt(0) >= 65 && pozicija.charAt(0) <= 72) || (pozicija.charAt(0) >= 97 && pozicija.charAt(0) <= 104) || !(pozicija.charAt(1) <= 49 && pozicija.charAt(1) <= 56)) {
-            throw new IllegalArgumentException("Pozicija se nalazi van sahovske table.");
+        if((!((position.charAt(0)>=65 && position.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104)))||(!(position.charAt(1)>=49 && position.charAt(1)<=56))){
+            throw new IllegalArgumentException("Pozicija se nalazi van tabele.");
         }
         //Bishop se moze samo dijagonalno kretati po svojoj boji
         if(Math.abs(position.charAt(0)-pozicija.charAt(0))!= Math.abs(position.charAt(1)-pozicija.charAt(1)))
