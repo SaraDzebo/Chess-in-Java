@@ -199,6 +199,38 @@ public class Board {
         return false;
     }
 
+    public void move(String oldPosition, String newPosition) throws IllegalChessMoveException{
+        //v-m slova
+        newPosition=newPosition.toUpperCase();
+
+        oldPosition=oldPosition.toUpperCase();
+        boolean var=false;
+        int a=0;
+        int b=0;
+        for(int i=0;i<8;i++){
+            for(int j=0; j<8; j++){
+
+                if(fields[i][j]!=null && fields[i][j].getPosition()==oldPosition){
+                    var=true;
+                    a=i;
+                    b=j;
+                }
+            }
+        }
+        if(!var)throw new IllegalChessMoveException("Na staroj poziciji se ne nalazi nijedna figura");
+
+        try{
+            fields[a][b].move(newPosition);
+            fields[helpFunction(newPosition.charAt(1))][helpFunction(newPosition.charAt(0))]=fields[a][b];
+
+            return;
+
+        }
+        catch(Exception izuzetak){
+
+        }
+        throw new IllegalChessMoveException("Ne postoji nijedna figura za koju je potez legalan!");
+    }
 
 }
 
