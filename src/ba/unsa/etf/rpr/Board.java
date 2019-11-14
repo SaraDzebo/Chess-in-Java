@@ -122,6 +122,7 @@ public class Board {
 
                             fields[i][j].move(position);
                             fields[(position.charAt(1))][helpFunction(position.charAt(0))] = fields[i][j]; //matric
+                            fields[i][j]=null;
                             return;
                         }
                         catch (Exception izuzetak) {
@@ -222,7 +223,7 @@ public class Board {
         try{
             fields[a][b].move(newPosition);
             fields[helpFunction(newPosition.charAt(1))][helpFunction(newPosition.charAt(0))]=fields[a][b];
-
+            fields[a][b]=null;
             return;
 
         }
