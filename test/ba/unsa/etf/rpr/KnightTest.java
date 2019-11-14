@@ -2,7 +2,8 @@ package ba.unsa.etf.rpr;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class KnightTest {
 
@@ -13,5 +14,15 @@ class KnightTest {
                 () -> k.move("C3")
         );
 
+    }
+
+    @Test
+    void getColor() {
+        King king=new King("E1",ChessPiece.Color.WHITE);
+        assertEquals(ChessPiece.Color.WHITE,king.getColor());
+    }
+
+    @Test
+    void testMove() {
     }
 }
