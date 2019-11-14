@@ -8,8 +8,8 @@ public class King extends ChessPiece{
         if(pozicija.length()!=2) {
             throw new IllegalArgumentException("Pozicija nije u ispravnom formatu.");
         }
-        if(!(pozicija.charAt(0)>=65 && pozicija.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104) || !(pozicija.charAt(1)<=49 && pozicija.charAt(1)<=56)){
-            throw new IllegalArgumentException("Pozicija se nalazi an tabele.");
+        if((!((pozicija.charAt(0)>=65 && pozicija.charAt(0)<=72) || (pozicija.charAt(0)>=97 && pozicija.charAt(0)<=104)))||(!(pozicija.charAt(1)>=49 && pozicija.charAt(1)<=56))){
+            throw new IllegalArgumentException("Pozicija se nalazi van tabele.");
         }
         this.pozicija=pozicija;
         this.boja=boja;
@@ -33,9 +33,13 @@ public class King extends ChessPiece{
     public void move(String position) throws IllegalChessMoveException {
         //iz konstruktora
 
-        if(position.length()!=2) throw new IllegalArgumentException("Pozicija nije zadana u ispravnom formatu");
-        if((!((position.charAt(0)>=65 && position.charAt(0)<=72)|| (position.charAt(0)>=97 && position.charAt(0)<=104)))||
-                (!(position.charAt(1)>=49 && position.charAt(1)<=56))) throw new IllegalArgumentException("Pozicija za kralja se nalazi van sahovske table");
+        if(position.length()!=2) {
+            throw new IllegalArgumentException("Pozicija nije u ispravnom formatu.");
+        }
+        if((!((position.charAt(0)>=65 && position.charAt(0)<=72) || (position.charAt(0)>=97 && position.charAt(0)<=104)))||(!(position.charAt(1)>=49 && position.charAt(1)<=56))){
+            throw new IllegalArgumentException("Pozicija se nalazi van tabele.");
+        }
+
 
         //kralj se moze pomjerati smao jedno mjesto:naprijed , nazad, sa strana i dijagonalno
 
